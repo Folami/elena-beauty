@@ -1,15 +1,18 @@
+import { useState } from 'react'
 import ceo2 from '../../../assets/ceo-2.jpg'
 import './About.css'
 import SectionHero from '../SectionHero/SectionHero'
 
 const About = ({ onOpenBooking }) => {
+  const [isExpanded, setIsExpanded] = useState(false)
+
   return (
     <div className="about-page" style={{ width: '100%' }}>
       <SectionHero
         title="Intentional Beauty Meets Elegance"
         subtitle="About Us"
         description="At Elena Beauty Skincare, our philosophy is that skincare should be a ritual — personalized, thoughtful, and transformative."
-        ctaText="Our Philosoph"
+        ctaText="Our Philosophy"
         onOpenBooking={onOpenBooking}
         showButtons={false}
       />
@@ -47,12 +50,32 @@ const About = ({ onOpenBooking }) => {
               treatment, we are dedicated to helping you achieve your skincare
               goals using the highest quality products and techniques.
             </p>
-            <p>
-              Our philosophy is rooted in the belief that skincare should be a
-              ritual, not a routine. We invite you to experience the
-              transformative power of professional care.
-            </p>
-            <div className="signature">Elena Beauty</div>
+            {isExpanded && (
+              <>
+                <p>
+                  Our philosophy is rooted in the belief that skincare should be
+                  a ritual, not a routine. We invite you to experience the
+                  transformative power of professional care.
+                </p>
+                <div className="signature">Elena Beauty</div>
+              </>
+            )}
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                color: '#e0218a',
+                cursor: 'pointer',
+                fontWeight: '600',
+                marginTop: '1rem',
+                padding: '0.5rem 0',
+                fontSize: '1rem',
+                textDecoration: 'underline',
+              }}
+            >
+              {isExpanded ? 'Read Less' : 'Read More'}
+            </button>
           </div>
         </div>
       </section>
