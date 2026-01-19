@@ -59,7 +59,7 @@
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
-  padding: 3rem 3rem 0;
+  padding: 5rem 2rem 0;
   max-width: 900px;
   width: 100%;
   z-index: 2;
@@ -231,14 +231,16 @@
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 1.5rem 0.5rem;
+    padding: 0.5rem 0.5rem 2rem;
+    align-items: flex-start;
   }
 
   .hero-image-container {
-    height: 60vh;
-    min-height: 400px;
+    height: 75vh;
+    min-height: 450px;
     border: 3px solid white;
     border-radius: 12px;
+    margin: 0 auto;
   }
 
   .hero-content h1 {
@@ -253,6 +255,10 @@
   .hero-content p {
     font-size: 1rem;
     margin-bottom: 2rem;
+  }
+
+  .hero-buttons .secondary-btn {
+    display: none;
   }
 }
 
