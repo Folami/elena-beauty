@@ -12,7 +12,7 @@ const About = ({ onOpenBooking }) => {
         title="Intentional Beauty Meets Elegance"
         subtitle="About Us"
         description="At Elena Beauty Skincare, our philosophy is that skincare should be a ritual — personalized, thoughtful, and transformative."
-        ctaText="Our Philosophy"
+        ctaText="Our Philosoph"
         onOpenBooking={onOpenBooking}
         showButtons={false}
       />
