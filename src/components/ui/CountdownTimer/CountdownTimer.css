@@ -1,0 +1,33 @@
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  background: #fff0f5;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px dashed #e0218a;
+  gap: 1rem;
+}
+
+.timer-interval {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #e0218a;
+}
+
+.timer-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #666;
+}
+
+.timer-finished {
+  color: #e0218a;
+  font-weight: bold;
+}

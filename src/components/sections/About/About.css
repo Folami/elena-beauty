@@ -1,0 +1,132 @@
+/* About Section Wrapper */
+.about-section {
+  padding: 4rem 1rem;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: transparent !important;
+}
+
+.about-container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Image Styles */
+.about-image {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 20px 20px 0 rgba(224, 33, 138, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  aspect-ratio: 3/4; /* Consistent portrait ratio */
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.about-image:hover img {
+  transform: scale(1.03);
+}
+
+/* Text Content */
+.about-text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.about-text-content h2 {
+  font-size: 2.2rem;
+  color: var(--primary-dark);
+  font-family: var(--font-heading);
+  margin-bottom: 0.5rem;
+}
+
+.about-text-content p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.ceo-paragraph {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  font-style: italic;
+  padding-left: 1.5rem;
+  border-left: 4px solid var(--primary);
+}
+
+.signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-top: 1rem;
+}
+
+/* CEO Specific */
+.ceo-photos {
+  width: 100%;
+}
+
+.ceo-small {
+  /* Inherits .about-image styles via class composition, but ensure specific overrides if needed */
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .ceo-photos {
+    order: 1;
+  }
+
+  .about-text-content:nth-of-type(1) {
+    order: 2; /* CEO text */
+  }
+
+  .about-image:not(.ceo-small) {
+    order: 3; /* Main image */
+  }
+
+  .about-text-content:nth-of-type(2) {
+    order: 4; /* Philosophy text */
+  }
+
+  .about-image {
+    max-width: 500px;
+    margin: 0 auto;
+    aspect-ratio: auto;
+    height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 3rem 1rem;
+  }
+
+  .about-image {
+    height: 300px;
+  }
+
+  .about-text-content h2 {
+    font-size: 1.8rem;
+  }
+}

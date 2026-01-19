@@ -1,0 +1,193 @@
+.specials-page {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  padding-top: 120px;
+}
+
+.specials-hero {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-bottom: 4rem;
+}
+
+.specials-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+}
+
+.specials-hero p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+}
+
+.specials-section {
+  padding: 4rem 0;
+}
+
+.specials-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+/* Make this page take the full device width while keeping inner padding */
+.specials-page .specials-container {
+  max-width: 100%;
+  width: 100vw;
+  padding: 0 2rem; /* keep comfortable padding from edges */
+  margin: 0; /* ensure full-bleed */
+}
+
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 2.5rem;
+}
+
+.special-card {
+  background: var(--white);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid var(--border-color);
+}
+
+.special-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(224, 33, 138, 0.15);
+}
+
+.special-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.special-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.special-card:hover .special-image {
+  transform: scale(1.05);
+}
+
+.special-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--accent-gold);
+  color: var(--text-dark);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.special-content {
+  padding: 2rem;
+}
+
+.special-content h3 {
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+}
+
+.special-description {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.special-pricing {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 1.1rem;
+}
+
+.special-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.special-validity {
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.book-special-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.book-special-btn:hover {
+  background: var(--primary-dark);
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(156, 39, 176, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .specials-page {
+    padding-top: 80px;
+  }
+
+  .specials-hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .specials-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .specials-hero p {
+    font-size: 1.1rem;
+  }
+
+  .specials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .specials-container {
+    padding: 0 1rem;
+  }
+
+  .special-content {
+    padding: 1.5rem;
+  }
+}
