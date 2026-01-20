@@ -168,12 +168,29 @@
   overflow: hidden;
 }
 
+.category-filters {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
+  z-index: 100;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .category-filter {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 3rem;
+}
+
+.category-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 0.5rem 0;
 }
 
 .filter-btn {
@@ -188,6 +205,29 @@
   text-transform: uppercase;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
+}
+
+.category-chip {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--primary);
+  border-radius: 20px;
+  background-color: var(--white);
+  color: var(--primary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.category-chip.active {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.category-chip:hover {
+  background-color: var(--primary-dark);
+  color: var(--white);
 }
 
 .filter-btn:hover,

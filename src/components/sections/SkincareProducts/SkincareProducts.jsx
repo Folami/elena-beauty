@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './SkincareProducts.css'
 import CheckoutModal from '../../modals/CheckoutModal/CheckoutModal'
 
@@ -333,6 +333,22 @@ const SkincareProducts = () => {
       ? products
       : products.filter((p) => p.category === selectedCategory)
 
+  useEffect(() => {
+    const header = document.querySelector('.category-filters')
+    const sticky = header.offsetTop
+
+    const handleScroll = () => {
+      if (window.pageYOffset > sticky) {
+        header.classList.add('sticky')
+      } else {
+        header.classList.remove('sticky')
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <div className="skincare-products-page">
       <style>{`
@@ -450,18 +466,20 @@ const SkincareProducts = () => {
           <h2 className="section-title">Individual Products</h2>
 
           {/* Category Filter */}
-          <div className="category-filter">
-            {categories.map((cat) => (
-              <button
-                key={cat.value}
-                className={`filter-btn ${
-                  selectedCategory === cat.value ? 'active' : ''
-                }`}
-                onClick={() => setSelectedCategory(cat.value)}
-              >
-                {cat.label}
-              </button>
-            ))}
+          <div className="category-filters">
+            <div className="category-list">
+              {categories.map((cat) => (
+                <button
+                  key={cat.value}
+                  className={`filter-btn ${
+                    selectedCategory === cat.value ? 'active' : ''
+                  }`}
+                  onClick={() => setSelectedCategory(cat.value)}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Products Grid */}
