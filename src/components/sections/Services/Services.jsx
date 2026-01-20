@@ -66,6 +66,97 @@ const Services = ({ onOpenBooking }) => {
           color: white;
         }
 
+        .services-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 2rem;
+          margin-bottom: 3rem;
+        }
+
+        .service-card {
+          background: white;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          display: flex;
+          flex-direction: column;
+          border: 1px solid #eee;
+        }
+
+        .service-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-image {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+        }
+
+        .service-content {
+          padding: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+        }
+
+        .service-title {
+          font-size: 1.4rem;
+          color: var(--primary-dark);
+          margin-bottom: 0.8rem;
+          font-family: var(--font-heading);
+        }
+
+        .service-description {
+          color: var(--text-light);
+          font-size: 0.95rem;
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+          flex-grow: 1;
+        }
+
+        .service-price {
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: var(--primary);
+          margin-bottom: 0;
+        }
+
+        .service-benefits {
+          text-align: left;
+          margin-bottom: 1.5rem;
+        }
+
+        .service-book-btn {
+          background: var(--primary);
+          color: white;
+          border: none;
+          padding: 0.8rem 1.8rem;
+          border-radius: 50px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          text-transform: uppercase;
+          font-size: 0.85rem;
+          letter-spacing: 0.5px;
+          width: auto;
+        }
+
+        .service-book-btn:hover {
+          background: var(--primary-dark);
+          transform: scale(1.05);
+          box-shadow: 0 6px 15px rgba(156, 39, 176, 0.4);
+        }
+
+        .service-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: auto;
+        }
+
         @media (max-width: 768px) {
           .category-filter {
             justify-content: flex-start;
@@ -122,18 +213,14 @@ const Services = ({ onOpenBooking }) => {
               <div className="services-grid">
                 {cat.items.map((s, idx) => (
                   <div key={idx} className="service-card">
-                    <div className="service-image">
-                      <img src={s.image} alt={s.title} />
-                    </div>
+                    <img
+                      src={s.image}
+                      alt={s.title}
+                      className="service-image"
+                    />
 
                     <div className="service-content">
                       <h4 className="service-title">{s.title}</h4>
-
-                      {s.price && (
-                        <div className="service-price">
-                          ₦{s.price.toLocaleString()}
-                        </div>
-                      )}
 
                       {s.prices && (
                         <div className="service-prices">
@@ -149,12 +236,31 @@ const Services = ({ onOpenBooking }) => {
                         <p className="service-description">{s.description}</p>
                       )}
 
-                      <button
-                        className="service-book-btn"
-                        onClick={() => onOpenBooking(s.title)}
-                      >
-                        Book Now
-                      </button>
+                      {s.benefits && (
+                        <div className="service-benefits">
+                          {s.benefits.map((benefit, i) => (
+                            <span key={i} className="benefit-tag">
+                              ✓ {benefit}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="service-footer">
+                        {s.price ? (
+                          <div className="service-price">
+                            ₦{s.price.toLocaleString()}
+                          </div>
+                        ) : (
+                          <div></div>
+                        )}
+                        <button
+                          className="service-book-btn"
+                          onClick={() => onOpenBooking(s.title)}
+                        >
+                          Book Now
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}

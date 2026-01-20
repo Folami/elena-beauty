@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { serviceData } from '../../sections/Services/Services'
+import { serviceData } from '../../../data/serviceData'
 import { specialsData } from '../../sections/Specials/Specials'
 import './GiftCertificateModal.css'
 
