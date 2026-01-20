@@ -54,7 +54,8 @@ const Reviews = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1, // Ensure only one review-card is visible on mobile
+          slidesToScroll: 1, // Slide one card at a time
         },
       },
     ],
