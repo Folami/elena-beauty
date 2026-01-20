@@ -378,6 +378,14 @@ const Services = ({ onOpenBooking }) => {
 
   return (
     <div className="services-page">
+      <style>{`
+        @media (max-width: 768px) {
+          .service-search-wrapper {
+            display: flex;
+            justify-content: center;
+          }
+        }
+      `}</style>
       <SectionHero
         title="Curated Treatments"
         subtitle="Our Menu"
