@@ -117,6 +117,29 @@
   }
 }
 
+@media (max-width: 768px) {
+  .about-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ceo-photos {
+    order: 1;
+  }
+
+  .about-text-content:first-of-type {
+    order: 2;
+  }
+
+  .about-image {
+    order: 3;
+  }
+
+  .about-text-content:last-of-type {
+    order: 4;
+  }
+}
+
 @media (max-width: 600px) {
   .about-section {
     padding: 3rem 1rem;
