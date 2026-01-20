@@ -365,24 +365,51 @@ export const serviceData = [
 ]
 
 const Services = ({ onOpenBooking }) => {
-  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('All')
 
-  const filteredServices = serviceData
-    .map((cat) => ({
-      ...cat,
-      items: cat.items.filter((item) =>
-        item.title.toLowerCase().includes(searchTerm.toLowerCase()),
-      ),
-    }))
-    .filter((cat) => cat.items.length > 0)
+  const categories = ['All', ...serviceData.map((cat) => cat.category)]
+
+  const filteredServices =
+    selectedCategory === 'All'
+      ? serviceData
+      : serviceData.filter((cat) => cat.category === selectedCategory)
 
   return (
     <div className="services-page">
       <style>{`
+        .category-filter {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-bottom: 3rem;
+        }
+        
+        .filter-btn {
+          padding: 0.8rem 1.5rem;
+          border: 2px solid var(--primary);
+          background: transparent;
+          color: var(--primary);
+          border-radius: 50px;
+          cursor: pointer;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          font-size: 1rem;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+          background: var(--primary);
+          color: white;
+        }
+
         @media (max-width: 768px) {
-          .service-search-wrapper {
-            display: flex;
-            justify-content: center;
+          .category-filter {
+            gap: 0.5rem;
+          }
+          .filter-btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
           }
         }
       `}</style>
@@ -397,68 +424,68 @@ const Services = ({ onOpenBooking }) => {
 
       <section id="services" className="section services">
         <div className="services-container">
-          <div className="service-search-wrapper">
-            <input
-              type="text"
-              className="service-search-input"
-              placeholder="Search services..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
+          <div className="category-filter">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                className={`filter-btn ${
+                  selectedCategory === cat ? 'active' : ''
+                }`}
+                onClick={() => setSelectedCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
 
-          {filteredServices.length > 0 ? (
-            filteredServices.map((cat) => (
-              <div key={cat.category} className="service-category">
+          {filteredServices.map((cat) => (
+            <div key={cat.category} className="service-category">
+              {selectedCategory === 'All' && (
                 <h3 className="category-title">{cat.category}</h3>
+              )}
 
-                <div className="services-grid">
-                  {cat.items.map((s, idx) => (
-                    <div key={idx} className="service-card">
-                      <div className="service-image">
-                        <img src={s.image} alt={s.title} />
-                      </div>
-
-                      <div className="service-content">
-                        <h4 className="service-title">{s.title}</h4>
-
-                        {s.price && (
-                          <div className="service-price">
-                            ₦{s.price.toLocaleString()}
-                          </div>
-                        )}
-
-                        {s.prices && (
-                          <div className="service-prices">
-                            {Object.entries(s.prices).map(([k, v]) => (
-                              <div key={k} className="service-price-line">
-                                {k}: ₦{v.toLocaleString()}
-                              </div>
-                            ))}
-                          </div>
-                        )}
-
-                        {s.description && (
-                          <p className="service-description">{s.description}</p>
-                        )}
-
-                        <button
-                          className="service-book-btn"
-                          onClick={() => onOpenBooking(s.title)}
-                        >
-                          Book Now
-                        </button>
-                      </div>
+              <div className="services-grid">
+                {cat.items.map((s, idx) => (
+                  <div key={idx} className="service-card">
+                    <div className="service-image">
+                      <img src={s.image} alt={s.title} />
                     </div>
-                  ))}
-                </div>
+
+                    <div className="service-content">
+                      <h4 className="service-title">{s.title}</h4>
+
+                      {s.price && (
+                        <div className="service-price">
+                          ₦{s.price.toLocaleString()}
+                        </div>
+                      )}
+
+                      {s.prices && (
+                        <div className="service-prices">
+                          {Object.entries(s.prices).map(([k, v]) => (
+                            <div key={k} className="service-price-line">
+                              {k}: ₦{v.toLocaleString()}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {s.description && (
+                        <p className="service-description">{s.description}</p>
+                      )}
+
+                      <button
+                        className="service-book-btn"
+                        onClick={() => onOpenBooking(s.title)}
+                      >
+                        Book Now
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))
-          ) : (
-            <div className="no-services-found">
-              No services found matching "{searchTerm}"
             </div>
-          )}
+          ))}
         </div>
       </section>
     </div>
