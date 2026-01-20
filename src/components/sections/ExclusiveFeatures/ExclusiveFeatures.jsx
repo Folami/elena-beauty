@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './ExclusiveFeatures.css'
 import CountdownTimer from '../../ui/CountdownTimer/CountdownTimer'
 import { specialsData } from '../Specials/Specials'
-import TermsModal from '../../modals/TermsModal/TermsModal'
 
 const ExclusiveFeatures = ({ onOpenBooking }) => {
-  const [isTermsOpen, setIsTermsOpen] = useState(false)
   // Find the Valentine's Special from the shared data
   const valentineSpecial = specialsData.find(
     (s) => s.title === "Valentine's Special",
@@ -16,7 +14,7 @@ const ExclusiveFeatures = ({ onOpenBooking }) => {
   return (
     <section className="exclusive-features-section">
       <div className="exclusive-container">
-        <h2 className="section-title">Exclusive Features</h2>
+        <h2 className="section-title">Exclusive Feature</h2>
         <p className="section-subtitle">Limited Time Offers</p>
 
         <div className="exclusive-card">
@@ -53,16 +51,9 @@ const ExclusiveFeatures = ({ onOpenBooking }) => {
             >
               Book This Special
             </button>
-            <button
-              className="terms-link-btn"
-              onClick={() => setIsTermsOpen(true)}
-            >
-              *Terms & Conditions apply
-            </button>
           </div>
         </div>
       </div>
-      <TermsModal isOpen={isTermsOpen} onClose={() => setIsTermsOpen(false)} />
     </section>
   )
 }

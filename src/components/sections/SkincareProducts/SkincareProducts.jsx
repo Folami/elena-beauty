@@ -13,7 +13,7 @@ const SkincareProducts = () => {
       const existing = prev.find((i) => i.id === item.id)
       if (existing) {
         return prev.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i,
         )
       }
       return [...prev, { ...item, quantity: 1 }]
@@ -33,7 +33,7 @@ const SkincareProducts = () => {
           return { ...item, quantity: newQty }
         }
         return item
-      })
+      }),
     )
   }
 
@@ -335,6 +335,61 @@ const SkincareProducts = () => {
 
   return (
     <div className="skincare-products-page">
+      <style>{`
+        .category-filter {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-bottom: 2rem;
+          position: sticky;
+          top: 70px;
+          z-index: 90;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(8px);
+          padding: 1rem 0;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .filter-btn {
+          padding: 0.8rem 1.5rem;
+          border: 2px solid var(--primary);
+          background: transparent;
+          color: var(--primary);
+          border-radius: 50px;
+          cursor: pointer;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          font-size: 1rem;
+          white-space: nowrap;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+          background: var(--primary);
+          color: white;
+        }
+
+        @media (max-width: 768px) {
+          .category-filter {
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 1rem 5%;
+            gap: 0.8rem;
+            margin-left: -5%;
+            width: 110%;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+          }
+          .category-filter::-webkit-scrollbar { display: none; }
+          .filter-btn {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            flex: 0 0 auto;
+          }
+        }
+      `}</style>
       <div className="products-hero">
         <h1>Skincare Products</h1>
         <p>Premium skincare solutions for radiant, healthy skin</p>

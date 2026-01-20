@@ -382,7 +382,14 @@ const Services = ({ onOpenBooking }) => {
           justify-content: center;
           flex-wrap: wrap;
           gap: 1rem;
-          margin-bottom: 3rem;
+          margin-bottom: 2rem;
+          position: sticky;
+          top: 70px;
+          z-index: 90;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(8px);
+          padding: 1rem 0;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
         
         .filter-btn {
@@ -395,6 +402,7 @@ const Services = ({ onOpenBooking }) => {
           font-weight: 600;
           transition: all 0.3s ease;
           font-size: 1rem;
+          white-space: nowrap;
         }
         
         .filter-btn:hover,
@@ -405,11 +413,21 @@ const Services = ({ onOpenBooking }) => {
 
         @media (max-width: 768px) {
           .category-filter {
-            gap: 0.5rem;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 1rem 5%;
+            gap: 0.8rem;
+            margin-left: -5%;
+            width: 110%;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
           }
+          .category-filter::-webkit-scrollbar { display: none; }
           .filter-btn {
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             font-size: 0.9rem;
+            flex: 0 0 auto;
           }
         }
       `}</style>
