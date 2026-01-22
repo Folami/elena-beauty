@@ -223,7 +223,7 @@ const SkincareProducts = () => {
                   className="product-image"
                 />
                 <div className="product-info">
-                  <h4>{product.name}</h4>
+                  <h4 className="product-title">{product.name}</h4>
                   <p className="product-description">{product.description}</p>
                   <div className="product-benefits">
                     {product.benefits.map((benefit, idx) => (

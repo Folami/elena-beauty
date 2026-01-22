@@ -132,71 +132,125 @@ const Navbar = ({ onOpenBooking, onOpenGift, onOpenMap, onNavigate }) => {
             {isMenuOpen ? '✕' : '☰'}
           </div>
 
-          {/* Links on the Right */}
+          {/* Links and Mobile Drawer */}
           <div className={`lower-right nav-links ${isMenuOpen ? 'open' : ''}`}>
-            <button
-              className="nav-link-btn"
-              onClick={() => {
-                onNavigate('home')
-                setIsMenuOpen(false)
-              }}
-            >
-              Home
-            </button>
-            <button
-              className="nav-link-btn"
-              onClick={() => {
-                onNavigate('services')
-                setIsMenuOpen(false)
-              }}
-            >
-              Services
-            </button>
-            <button
-              className="nav-link-btn"
-              onClick={() => {
-                onNavigate('skincare')
-                setIsMenuOpen(false)
-              }}
-            >
-              Skincare Products
-            </button>
-            <button
-              className="nav-link-btn"
-              onClick={() => {
-                onNavigate('specials')
-                setIsMenuOpen(false)
-              }}
-            >
-              Specials
-            </button>
-            <button
-              className="nav-link-btn"
-              onClick={() => {
-                onNavigate('couples')
-                setIsMenuOpen(false)
-              }}
-            >
-              Couples
-            </button>
-            <button
-              className="nav-link-btn"
-              onClick={() => {
-                onNavigate('memberships')
-                setIsMenuOpen(false)
-              }}
-            >
-              Membership Subscriptions
-            </button>
-            <button
-              className="nav-link-btn"
-              onClick={() => {
-                onNavigate('about')
-                setIsMenuOpen(false)
-              }}
-            >
-              About Us
-            </button>
+            <div className="nav-links-inner">
+              <button
+                className="nav-link-btn"
+                onClick={() => {
+                  onNavigate('home')
+                  setIsMenuOpen(false)
+                }}
+              >
+                Home
+              </button>
+              <button
+                className="nav-link-btn"
+                onClick={() => {
+                  onNavigate('services')
+                  setIsMenuOpen(false)
+                }}
+              >
+                Services
+              </button>
+              <button
+                className="nav-link-btn"
+                onClick={() => {
+                  onNavigate('skincare')
+                  setIsMenuOpen(false)
+                }}
+              >
+                Skincare Products
+              </button>
+              <button
+                className="nav-link-btn"
+                onClick={() => {
+                  onNavigate('specials')
+                  setIsMenuOpen(false)
+                }}
+              >
+                Specials
+              </button>
+              <button
+                className="nav-link-btn"
+                onClick={() => {
+                  onNavigate('couples')
+                  setIsMenuOpen(false)
+                }}
+              >
+                Couples
+              </button>
+              <button
+                className="nav-link-btn"
+                onClick={() => {
+                  onNavigate('memberships')
+                  setIsMenuOpen(false)
+                }}
+              >
+                Membership Subscriptions
+              </button>
+              <button
+                className="nav-link-btn"
+                onClick={() => {
+                  onNavigate('about')
+                  setIsMenuOpen(false)
+                }}
+              >
+                About Us
+              </button>
+            </div>
+
+            {/* Mobile-only footer in drawer */}
+            <div className="mobile-drawer-footer">
+              <div className="mobile-drawer-actions">
+                <button
+                  onClick={() => {
+                    onOpenBooking()
+                    setIsMenuOpen(false)
+                  }}
+                  className="mobile-action-btn"
+                >
+                  <CalendarIcon /> Book Now
+                </button>
+                <button
+                  onClick={() => {
+                    onOpenGift()
+                    setIsMenuOpen(false)
+                  }}
+                  className="mobile-action-btn"
+                >
+                  <GiftIcon /> Gift Certificate
+                </button>
+                <button
+                  onClick={() => {
+                    onOpenMap()
+                    setIsMenuOpen(false)
+                  }}
+                  className="mobile-action-btn"
+                >
+                  <MapPinIcon /> Find Us
+                </button>
+              </div>
+
+              <div className="mobile-drawer-socials">
+                <a href="https://facebook.com" target="_blank" rel="noreferrer">
+                  <FacebookIcon />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <InstagramIcon />
+                </a>
+                <a href="https://tiktok.com" target="_blank" rel="noreferrer">
+                  <TiktokIcon />
+                </a>
+                <a href="https://snapchat.com" target="_blank" rel="noreferrer">
+                  <SnapchatIcon />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
