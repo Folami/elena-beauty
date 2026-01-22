@@ -46,6 +46,15 @@ const Services = ({ onOpenBooking }) => {
   return (
     <div className="services-page">
       <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        .services-container {
+          animation: fadeInUp 0.5s ease-out;
+        }
+
         .category-filter {
           display: flex;
           justify-content: center;
@@ -217,7 +226,7 @@ const Services = ({ onOpenBooking }) => {
       </div>
 
       <section id="services" className="section services">
-        <div className="services-container">
+        <div className="services-container" key={selectedCategory}>
           {filteredServices.map((cat) => (
             <div key={cat.category} className="service-category">
               {selectedCategory === 'All' && (

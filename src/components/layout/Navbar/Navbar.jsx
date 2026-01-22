@@ -37,7 +37,7 @@ const Navbar = ({ onOpenBooking, onOpenGift, onOpenMap, onNavigate }) => {
       <style>{`
         .nav-links-inner {
           display: flex;
-          gap: 2rem;
+          gap: 1.5rem;
           align-items: center;
         }
         
@@ -54,36 +54,55 @@ const Navbar = ({ onOpenBooking, onOpenGift, onOpenMap, onNavigate }) => {
           left: 50%;
           transform: translateX(-50%);
           background: white;
-          min-width: 220px;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-          border-radius: 12px;
+          color: var(--text-dark);
+          min-width: 260px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+          border-radius: 8px;
           padding: 0.5rem;
           opacity: 0;
           visibility: hidden;
           transition: all 0.3s ease;
-          z-index: 1000;
+          z-index: 1100;
         }
 
         .services-dropdown:hover .services-menu {
           opacity: 1;
           visibility: visible;
-          top: 100%;
+          top: 140%;
         }
 
         .services-item {
-          padding: 0.8rem 1.2rem;
+          padding: 0.75rem 1rem;
           color: var(--text-dark);
-          font-size: 0.9rem;
-          border-radius: 8px;
+          font-size: 0.95rem;
+          font-weight: 500;
+          border-radius: 6px;
           transition: all 0.2s ease;
           cursor: pointer;
-          white-space: nowrap;
-          text-align: center;
+          text-align: left;
+          display: block;
+          width: 100%;
         }
 
         .services-item:hover {
-          background: var(--primary-light);
+          background: var(--secondary);
           color: var(--primary);
+          transform: translateX(4px);
+        }
+
+        .services-dropdown .nav-link-btn {
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
+        }
+
+        .services-dropdown .nav-link-btn svg {
+          font-size: 0.8em;
+          transition: transform 0.3s ease;
+        }
+
+        .services-dropdown:hover .nav-link-btn svg {
+          transform: rotate(180deg);
         }
       `}</style>
       {/* Upper Bar -> Header */}
