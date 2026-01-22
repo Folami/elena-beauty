@@ -244,29 +244,50 @@
 
 @media (max-width: 768px) {
   .hero-section {
-    padding: 2rem 1rem;
+    padding: 0;
+    margin: 0;
   }
 
-  /* .hero-image-container {
-    height: 100vh;
-    border: none;
-    border-radius: 0;
+  .hero-slider {
     margin: 0;
-    box-shadow: none;
-  } */
+    padding: 0;
+  }
+
+  .hero-slide {
+    padding: 0;
+    margin: 0;
+  }
+
+  .hero-image-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero-exclusive-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero-exclusive-container .exclusive-card {
+    height: 100vh;
+  }
 
   .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .hero-content p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .hero-buttons {
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 0 2rem;
+    gap: 1rem;
+    padding: 0 1rem;
   }
 
   .primary-btn,
@@ -278,35 +299,48 @@
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 1rem;
-    align-items: center;
+    padding: 0;
+    margin: 0;
   }
 
   .hero-image-container {
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     border: none;
     border-radius: 0;
     margin: 0;
     box-shadow: none;
   }
 
+  .hero-exclusive-container {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .hero-exclusive-container .exclusive-container {
+    padding: 1rem;
+  }
+
+  .hero-exclusive-container .exclusive-card {
+    grid-template-columns: 1fr;
+  }
+
   .hero-content {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
   }
 
   .hero-content h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .hero-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     letter-spacing: 2px;
   }
 
   .hero-content p {
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-buttons .secondary-btn {

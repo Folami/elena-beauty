@@ -18,6 +18,7 @@ const Navbar = ({ onOpenBooking, onOpenGift, onOpenMap, onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [isContactOpen, setIsContactOpen] = useState(false)
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -103,6 +104,59 @@ const Navbar = ({ onOpenBooking, onOpenGift, onOpenMap, onNavigate }) => {
 
         .services-dropdown:hover .nav-link-btn svg {
           transform: rotate(180deg);
+        }
+
+        /* Mobile Services Dropdown */
+        @media (max-width: 900px) {
+          .services-dropdown {
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+
+          .services-dropdown .nav-link-btn {
+            width: 100%;
+            justify-content: space-between;
+            text-align: left;
+          }
+
+          .services-menu {
+            position: static;
+            transform: none;
+            width: 100%;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 1;
+            visibility: visible;
+            transition: max-height 0.3s ease;
+            background: rgba(255, 20, 147, 0.02);
+          }
+
+          .services-menu.mobile-open {
+            max-height: 500px;
+            padding: 0.5rem 0;
+          }
+
+          .services-item {
+            padding: 1rem 3rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+          }
+
+          .services-item:hover {
+            transform: translateX(0);
+            padding-left: 3.5rem;
+          }
+
+          .services-dropdown .nav-link-btn svg {
+            transition: transform 0.3s ease;
+          }
+
+          .services-dropdown.mobile-open .nav-link-btn svg {
+            transform: rotate(180deg);
+          }
         }
       `}</style>
       {/* Upper Bar -> Header */}
@@ -216,17 +270,24 @@ const Navbar = ({ onOpenBooking, onOpenGift, onOpenMap, onNavigate }) => {
               >
                 Home
               </button>
-              <div className="services-dropdown">
+              <div className={`services-dropdown ${isServicesOpen ? 'mobile-open' : ''}`}>
                 <button
                   className="nav-link-btn"
-                  onClick={() => {
-                    onNavigate('services')
-                    setIsMenuOpen(false)
+                  onClick={(e) => {
+                    // On mobile, toggle dropdown
+                    if (window.innerWidth <= 900) {
+                      e.stopPropagation()
+                      setIsServicesOpen(!isServicesOpen)
+                    } else {
+                      // On desktop, navigate to services
+                      onNavigate('services')
+                      setIsMenuOpen(false)
+                    }
                   }}
                 >
                   Services <ChevronDownIcon />
                 </button>
-                <div className="services-menu">
+                <div className={`services-menu ${isServicesOpen ? 'mobile-open' : ''}`}>
                   {serviceData.map((service, index) => (
                     <div
                       key={index}
@@ -235,6 +296,7 @@ const Navbar = ({ onOpenBooking, onOpenGift, onOpenMap, onNavigate }) => {
                         onNavigate('services')
                         window.location.hash = service.category
                         setIsMenuOpen(false)
+                        setIsServicesOpen(false)
                       }}
                     >
                       {service.category}
