@@ -199,58 +199,6 @@ const Navbar = ({ onOpenBooking, onOpenGift, onOpenMap, onNavigate }) => {
                 About Us
               </button>
             </div>
-
-            {/* Mobile-only footer in drawer */}
-            <div className="mobile-drawer-footer">
-              <div className="mobile-drawer-actions">
-                <button
-                  onClick={() => {
-                    onOpenBooking()
-                    setIsMenuOpen(false)
-                  }}
-                  className="mobile-action-btn"
-                >
-                  <CalendarIcon /> Book Now
-                </button>
-                <button
-                  onClick={() => {
-                    onOpenGift()
-                    setIsMenuOpen(false)
-                  }}
-                  className="mobile-action-btn"
-                >
-                  <GiftIcon /> Gift Certificate
-                </button>
-                <button
-                  onClick={() => {
-                    onOpenMap()
-                    setIsMenuOpen(false)
-                  }}
-                  className="mobile-action-btn"
-                >
-                  <MapPinIcon /> Find Us
-                </button>
-              </div>
-
-              <div className="mobile-drawer-socials">
-                <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                  <FacebookIcon />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <InstagramIcon />
-                </a>
-                <a href="https://tiktok.com" target="_blank" rel="noreferrer">
-                  <TiktokIcon />
-                </a>
-                <a href="https://snapchat.com" target="_blank" rel="noreferrer">
-                  <SnapchatIcon />
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </nav>
