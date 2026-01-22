@@ -12,6 +12,7 @@ import {
 } from '../../ui/SocialIcons/SocialIcons'
 import logoImg from '../../../assets/Logo-Img.png'
 import './Navbar.css'
+import { serviceData } from '../../../data/serviceData'
 
 const Navbar = ({ onOpenBooking, onOpenGift, onOpenMap, onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -33,6 +34,58 @@ const Navbar = ({ onOpenBooking, onOpenGift, onOpenMap, onNavigate }) => {
 
   return (
     <div className={`navbar-wrapper ${scrolled ? 'scrolled' : ''}`}>
+      <style>{`
+        .nav-links-inner {
+          display: flex;
+          gap: 2rem;
+          align-items: center;
+        }
+        
+        .services-dropdown {
+          position: relative;
+          height: 100%;
+          display: flex;
+          align-items: center;
+        }
+
+        .services-menu {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          background: white;
+          min-width: 220px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+          border-radius: 12px;
+          padding: 0.5rem;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          z-index: 1000;
+        }
+
+        .services-dropdown:hover .services-menu {
+          opacity: 1;
+          visibility: visible;
+          top: 100%;
+        }
+
+        .services-item {
+          padding: 0.8rem 1.2rem;
+          color: var(--text-dark);
+          font-size: 0.9rem;
+          border-radius: 8px;
+          transition: all 0.2s ease;
+          cursor: pointer;
+          white-space: nowrap;
+          text-align: center;
+        }
+
+        .services-item:hover {
+          background: var(--primary-light);
+          color: var(--primary);
+        }
+      `}</style>
       {/* Upper Bar -> Header */}
       <header className="navbar-upper">
         <div className="navbar-container upper-container">
@@ -144,15 +197,32 @@ const Navbar = ({ onOpenBooking, onOpenGift, onOpenMap, onNavigate }) => {
               >
                 Home
               </button>
-              <button
-                className="nav-link-btn"
-                onClick={() => {
-                  onNavigate('services')
-                  setIsMenuOpen(false)
-                }}
-              >
-                Services
-              </button>
+              <div className="services-dropdown">
+                <button
+                  className="nav-link-btn"
+                  onClick={() => {
+                    onNavigate('services')
+                    setIsMenuOpen(false)
+                  }}
+                >
+                  Services <ChevronDownIcon />
+                </button>
+                <div className="services-menu">
+                  {serviceData.map((service, index) => (
+                    <div
+                      key={index}
+                      className="services-item"
+                      onClick={() => {
+                        onNavigate('services')
+                        window.location.hash = service.category
+                        setIsMenuOpen(false)
+                      }}
+                    >
+                      {service.category}
+                    </div>
+                  ))}
+                </div>
+              </div>
               <button
                 className="nav-link-btn"
                 onClick={() => {

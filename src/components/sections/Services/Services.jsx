@@ -22,6 +22,20 @@ const Services = ({ onOpenBooking }) => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const checkHash = () => {
+      const hash = decodeURIComponent(window.location.hash.substring(1))
+      const availableCategories = serviceData.map((cat) => cat.category)
+      if (hash && availableCategories.includes(hash)) {
+        setSelectedCategory(hash)
+      }
+    }
+
+    checkHash()
+    window.addEventListener('hashchange', checkHash)
+    return () => window.removeEventListener('hashchange', checkHash)
+  }, [])
+
   const categories = ['All', ...serviceData.map((cat) => cat.category)]
 
   const filteredServices =
