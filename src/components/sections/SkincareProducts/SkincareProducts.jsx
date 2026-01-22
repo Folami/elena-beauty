@@ -136,6 +136,11 @@ const SkincareProducts = () => {
             flex: 0 0 auto;
           }
         }
+
+        .cart-floating-btn {
+          bottom: 100px;
+          right: 30px;
+        }
       `}</style>
       <div className="products-hero">
         <h1>Skincare Products</h1>
