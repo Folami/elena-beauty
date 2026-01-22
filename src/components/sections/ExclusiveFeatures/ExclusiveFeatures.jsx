@@ -3,7 +3,7 @@ import './ExclusiveFeatures.css'
 import CountdownTimer from '../../ui/CountdownTimer/CountdownTimer'
 import { specialsData } from '../Specials/Specials'
 
-const ExclusiveFeatures = ({ onOpenBooking }) => {
+const ExclusiveFeatures = ({ onOpenBooking, isHeroSlide }) => {
   // Find the Valentine's Special from the shared data
   const valentineSpecial = specialsData.find(
     (s) => s.title === "Valentine's Special",
@@ -12,10 +12,14 @@ const ExclusiveFeatures = ({ onOpenBooking }) => {
   if (!valentineSpecial) return null
 
   return (
-    <section className="exclusive-features-section">
+    <section className={`exclusive-features-section ${isHeroSlide ? 'hero-slide-mode' : ''}`}>
       <div className="exclusive-container">
-        <h2 className="section-title">Exclusive Feature</h2>
-        <p className="section-subtitle">Limited Time Offers</p>
+        {!isHeroSlide && (
+          <>
+            <h2 className="section-title">Exclusive Feature</h2>
+            <p className="section-subtitle">Limited Time Offers</p>
+          </>
+        )}
 
         <div className="exclusive-card">
           <div className="exclusive-image-wrapper">
@@ -33,6 +37,7 @@ const ExclusiveFeatures = ({ onOpenBooking }) => {
           </div>
           <div className="exclusive-content">
             <h3>{valentineSpecial.title}</h3>
+            <h4 className="valentine-countdown-text">Countdown to Valentine</h4>
             <CountdownTimer />
             <p className="exclusive-description">
               {valentineSpecial.description}

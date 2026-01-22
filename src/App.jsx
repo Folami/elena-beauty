@@ -71,7 +71,6 @@ function App() {
           }}
         >
           <Hero onOpenBooking={handleOpenBooking} onNavigate={handleNavigate} />
-          <ExclusiveFeatures onOpenBooking={handleOpenBooking} />
           <About onOpenBooking={handleOpenBooking} />
           <div style={{ width: '100%' }}>
             <Reviews />

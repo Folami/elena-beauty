@@ -55,6 +55,15 @@
   text-align: center;
 }
 
+.valentine-countdown-text {
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
+}
+
 .exclusive-content h3 {
   font-size: 2.2rem;
   color: var(--primary);
