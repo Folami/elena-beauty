@@ -1,0 +1,69 @@
+/* Mobile-specific styles for ExclusiveFeatures when in Hero slide */
+@media (max-width: 768px) {
+  .hero-exclusive-container .exclusive-features-section.hero-slide-mode {
+    padding: 0;
+    width: 100vw;
+    background-color: transparent;
+  }
+
+  .hero-exclusive-container .exclusive-container {
+    max-width: 100vw;
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem;
+  }
+
+  .hero-exclusive-container .exclusive-card {
+    width: 100%;
+    border-radius: 0;
+    height: auto;
+  }
+
+  .hero-exclusive-container .exclusive-content {
+    padding: 2rem 1rem;
+  }
+
+  .hero-exclusive-container .exclusive-pricing {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-exclusive-container .exclusive-features-section.hero-slide-mode {
+    padding: 0.5rem;
+  }
+
+  .hero-exclusive-container .exclusive-container {
+    padding: 0.5rem;
+  }
+
+  .hero-exclusive-container .exclusive-card {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-exclusive-container .exclusive-image-wrapper {
+    min-height: 200px;
+    max-height: 250px;
+  }
+
+  .hero-exclusive-container .exclusive-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-exclusive-container .exclusive-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .hero-exclusive-container .valentine-countdown-text {
+    font-size: 0.85rem;
+  }
+
+  .hero-exclusive-container .exclusive-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-exclusive-container .book-exclusive-btn {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+}

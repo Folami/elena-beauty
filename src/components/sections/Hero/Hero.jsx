@@ -19,7 +19,11 @@ const Hero = ({ onOpenBooking, onNavigate }) => {
     arrows: false,
     fade: true,
     cssEase: 'linear',
-    pauseOnHover: false
+    pauseOnHover: false,
+    swipe: true,
+    swipeToSlide: true,
+    touchMove: true,
+    touchThreshold: 10
   }
 
   useEffect(() => {
