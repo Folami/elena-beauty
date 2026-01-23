@@ -1,22 +1,26 @@
 /* Mobile-specific styles for ExclusiveFeatures when in Hero slide */
 @media (max-width: 768px) {
   .hero-exclusive-container .exclusive-features-section.hero-slide-mode {
-    padding: 0;
-    width: 100vw;
-    background-color: transparent;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100vw !important;
+    background-color: var(--secondary) !important;
   }
 
   .hero-exclusive-container .exclusive-container {
-    max-width: 100vw;
-    width: 100%;
-    margin: 0;
-    padding: 0.5rem;
+    max-width: 100vw !important;
+    width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   .hero-exclusive-container .exclusive-card {
-    width: 100%;
-    border-radius: 0;
+    width: 100vw !important;
+    border-radius: 0 !important;
     height: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
   }
 
   .hero-exclusive-container .exclusive-content {
@@ -26,19 +30,32 @@
   .hero-exclusive-container .exclusive-pricing {
     flex-wrap: wrap;
   }
+
+  .hero-exclusive-container .book-exclusive-btn {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {
   .hero-exclusive-container .exclusive-features-section.hero-slide-mode {
-    padding: 0.5rem;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100vw !important;
+    background-color: var(--secondary) !important;
   }
 
   .hero-exclusive-container .exclusive-container {
-    padding: 0.5rem;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100vw !important;
   }
 
   .hero-exclusive-container .exclusive-card {
     grid-template-columns: 1fr;
+    width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
   }
 
   .hero-exclusive-container .exclusive-image-wrapper {
@@ -63,7 +80,6 @@
   }
 
   .hero-exclusive-container .book-exclusive-btn {
-    padding: 0.9rem 1.5rem;
-    font-size: 1rem;
+    display: none !important;
   }
 }
