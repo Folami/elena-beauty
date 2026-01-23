@@ -45,6 +45,23 @@
   border-radius: 20px;
   font-weight: 700;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.exclusive-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(224, 33, 138, 0.95), rgba(224, 33, 138, 0.7));
+  color: white;
+  padding: 1.5rem 1rem;
+  margin: 0;
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 700;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .exclusive-content {
@@ -119,10 +136,74 @@
 }
 
 @media (max-width: 768px) {
+  .exclusive-features-section {
+    padding: 3rem 2%;
+  }
+
   .exclusive-card {
     grid-template-columns: 1fr;
   }
+
+  .exclusive-pricing {
+    display: flex !important;
+  }
+
+  .exclusive-title-overlay {
+    font-size: 2rem;
+    padding: 1.25rem 0.75rem;
+  }
+
+  .original-price {
+    font-size: 1.3rem;
+  }
+
+  .special-price {
+    font-size: 2rem;
+  }
+
   .exclusive-image-wrapper {
     min-height: 250px;
+  }
+
+  .exclusive-content {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .exclusive-features-section {
+    padding: 2rem 1%;
+  }
+
+  .exclusive-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .exclusive-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .exclusive-title-overlay {
+    font-size: 1.6rem;
+    padding: 1rem 0.5rem;
+  }
+
+  .exclusive-pricing {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .original-price {
+    font-size: 1.2rem;
+  }
+
+  .special-price {
+    font-size: 1.8rem;
+  }
+
+  .book-exclusive-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
   }
 }

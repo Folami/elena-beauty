@@ -34,9 +34,9 @@ const ExclusiveFeatures = ({ onOpenBooking, isHeroSlide }) => {
                 valentineSpecial.originalPrice - valentineSpecial.specialPrice
               ).toLocaleString()}
             </div>
+            <h3 className="exclusive-title-overlay">{valentineSpecial.title}</h3>
           </div>
           <div className="exclusive-content">
-            <h3>{valentineSpecial.title}</h3>
             <h4 className="valentine-countdown-text">Countdown to Valentine</h4>
             <CountdownTimer />
             <p className="exclusive-description">
