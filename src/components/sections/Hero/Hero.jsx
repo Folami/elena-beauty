@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import Slider from 'react-slick'
 import './Hero.css'
+import './Hero-gift.css'
 import ExclusiveFeatures from '../ExclusiveFeatures/ExclusiveFeatures'
 
 // Slick styles are already imported in App.jsx

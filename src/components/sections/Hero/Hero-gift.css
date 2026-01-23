@@ -1,0 +1,88 @@
+/* Gift Certificate Slide Styles */
+.hero-gift-container {
+  position: relative;
+}
+
+.gift-packages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gift-package-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.gift-package-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--accent-gold);
+}
+
+.package-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.gift-package-item h3 {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.gift-package-item p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Mobile Styles for Gift Packages */
+@media (max-width: 768px) {
+  .gift-packages {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .gift-package-item {
+    padding: 1.25rem 1rem;
+  }
+
+  .package-icon {
+    font-size: 2rem;
+  }
+
+  .gift-package-item h3 {
+    font-size: 1.1rem;
+  }
+
+  .gift-package-item p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gift-package-item {
+    padding: 1rem 0.75rem;
+  }
+
+  .package-icon {
+    font-size: 1.8rem;
+  }
+
+  .gift-package-item h3 {
+    font-size: 1rem;
+  }
+}
