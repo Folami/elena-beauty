@@ -70,7 +70,11 @@ function App() {
             overflowX: 'hidden',
           }}
         >
-          <Hero onOpenBooking={handleOpenBooking} onNavigate={handleNavigate} />
+          <Hero 
+            onOpenBooking={handleOpenBooking} 
+            onNavigate={handleNavigate} 
+            onOpenGift={() => setIsGiftModalOpen(true)}
+          />
           <About onOpenBooking={handleOpenBooking} />
           <div style={{ width: '100%' }}>
             <Reviews />
