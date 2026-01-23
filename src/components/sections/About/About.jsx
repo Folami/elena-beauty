@@ -7,7 +7,7 @@ const About = ({ onOpenBooking }) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (
-    <div className="about-page" style={{ width: '100%' }}>
+    <div id="about" className="about-page" style={{ width: '100%' }}>
       <SectionHero
         title="Intentional Beauty Meets Elegance"
         subtitle="About Us"
@@ -17,7 +17,7 @@ const About = ({ onOpenBooking }) => {
         showButtons={false}
       />
       <section
-        id="about"
+        id="about-content"
         className="section about-section"
         style={{ width: '100%' }}
       >
