@@ -57,7 +57,7 @@
   color: white;
   padding: 1.5rem 1rem;
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   text-align: center;
   font-weight: 700;
   z-index: 2;
@@ -149,8 +149,12 @@
   }
 
   .exclusive-title-overlay {
-    font-size: 2rem;
+    font-size: 2.4rem;
     padding: 1.25rem 0.75rem;
+  }
+
+  .valentine-countdown-text {
+    font-size: 1.15rem;
   }
 
   .original-price {
@@ -168,6 +172,15 @@
   .exclusive-content {
     padding: 2rem 1.5rem;
   }
+
+  .book-exclusive-btn {
+    display: block !important;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -184,8 +197,12 @@
   }
 
   .exclusive-title-overlay {
-    font-size: 1.6rem;
+    font-size: 2rem;
     padding: 1rem 0.5rem;
+  }
+
+  .valentine-countdown-text {
+    font-size: 1.05rem;
   }
 
   .exclusive-pricing {
@@ -203,7 +220,11 @@
   }
 
   .book-exclusive-btn {
-    padding: 0.9rem 2rem;
-    font-size: 1rem;
+    display: block !important;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    padding: 0.95rem 2rem;
+    font-size: 1.05rem;
   }
 }
