@@ -173,13 +173,30 @@
     padding: 2rem 1.5rem;
   }
 
+  .exclusive-content .valentine-countdown-text {
+    order: 1;
+  }
+
+  .exclusive-content .countdown-timer {
+    order: 2;
+  }
+
   .book-exclusive-btn {
+    order: 3;
     display: block !important;
     width: 100%;
     max-width: 300px;
-    margin: 0 auto;
+    margin: 1rem auto 0 auto;
     padding: 1rem 2rem;
     font-size: 1.1rem;
+  }
+
+  .exclusive-content .exclusive-description {
+    order: 4;
+  }
+
+  .exclusive-content .exclusive-pricing {
+    order: 5;
   }
 }
 
