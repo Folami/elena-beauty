@@ -345,10 +345,6 @@
     border: none !important;
   }
 
-  .hero-exclusive-container .book-exclusive-btn {
-    display: none !important;
-  }
-
   .hero-content h1 {
     font-size: 2.2rem;
   }
@@ -449,10 +445,6 @@
 
   .hero-exclusive-container .valentine-countdown-text {
     font-size: 0.85rem;
-  }
-
-  .hero-exclusive-container .book-exclusive-btn {
-    display: none !important;
   }
 
   .hero-content {
