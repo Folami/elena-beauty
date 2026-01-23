@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -24,6 +24,7 @@ function App() {
   const [isGiftModalOpen, setIsGiftModalOpen] = useState(false)
   const [currentPage, setCurrentPage] = useState('home')
   const [bookingService, setBookingService] = useState(null)
+  const [showStickyBookBtn, setShowStickyBookBtn] = useState(false)
 
   // Handle navigation
   const handleNavigate = (page) => {
@@ -48,6 +49,31 @@ function App() {
     setIsModalOpen(false)
     setBookingService(null)
   }
+
+  // Track Hero section visibility for sticky button
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Show sticky button when Hero is NOT in view
+        setShowStickyBookBtn(!entry.isIntersecting)
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '-100px'
+      }
+    )
+
+    const heroElement = document.getElementById('home')
+    if (heroElement) {
+      observer.observe(heroElement)
+    }
+
+    return () => {
+      if (heroElement) {
+        observer.unobserve(heroElement)
+      }
+    }
+  }, [currentPage])
 
   return (
     <div className="app">
@@ -101,7 +127,7 @@ function App() {
       </div>
       <BackToTop />
       <button
-        className="mobile-sticky-book-btn"
+        className={`mobile-sticky-book-btn ${showStickyBookBtn ? 'visible' : ''}`}
         onClick={() => handleOpenBooking()}
       >
         Book Now
